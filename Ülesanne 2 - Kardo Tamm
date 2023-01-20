@@ -1,0 +1,44 @@
+import pygame
+
+# Initialize Pygame
+pygame.init()
+
+# Määrab akna suuruse
+size = (640, 480)
+screen = pygame.display.set_mode(size)
+
+# Paneb pygamele nime
+pygame.display.set_caption("Shop Game")
+
+
+
+# Laeb pildid
+seller_image = pygame.image.load("img/seller.png") impordib pildi
+bg_shop_image = pygame.image.load("img/bgshop.jpg") impordib pildi
+chat_image = pygame.image.load("img/chat.png") impordib pildi
+seller_image = pygame.transform.scale(seller_image, [302, 240])
+chat_image = pygame.transform.scale(chat_image,[203, 100])
+
+Piltidele värvi
+screen.blit(bg_shop_image, (1, 1)) Annab pildile suuruse
+screen.blit(seller_image, (140, 183)) Annab pildile suuruse
+screen.blit(chat_image, (342, 152)) Annab pildile suuruse
+
+font = pygame.font.Font(None, 25)#annab testile fondi ning selle suuruse
+text = font.render("Tere, olen Kardo!", True, [204,20,40])#kirjutab selle lause ning annab selle värvi
+screen.blit(text, [380,190])#vaatab mis koodrinaatidele on see tekst kirjutatud
+pygame.display.flip()#värskendab akent
+
+
+# Uuendab ekraani
+pygame.display.flip()
+
+# Jätab mängu kordama
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+# Lahkub pygamest
+pygame.quit()
